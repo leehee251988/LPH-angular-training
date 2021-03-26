@@ -1,0 +1,18 @@
+<h4>Angular's RoutingModule</h4>
+<p>
+  RoutingModule là một module được đặt tại @angular/router cung cấp cho ứng dụng Angluar của chúng ta khả năng điều hướng và hiển thị nội dung phù hợp với địa chỉ URL. Với các ứng dụng web thông thường, việc điều hướng theo URL thường sẽ do phía server đảm nhiệm. Ngoài ra, các pakage routing cung cấp cho chúng ta rất nhiều chức năng khác, các chức năng này là gì, thì mình sẽ có 1 bài viết cụ thể về nó.
+</p>
+
+<h2>Nesting routes</h2>
+
+<nav>
+  <ul>
+    <li><a routerLink="child-a">Child A</a></li>
+    <li><a routerLink="child-b">Child B</a></li>
+  </ul>
+</nav>
+
+<h2>Using relative paths</h2>
+<a routerLink="../calculator-component">Relative Route to calculator-component</a>
+
+<router-outlet></router-outlet>
