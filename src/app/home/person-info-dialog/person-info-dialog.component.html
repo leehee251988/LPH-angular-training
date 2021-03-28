@@ -1,13 +1,59 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>Hi {{data.title}}</h1>
 
 <div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
-</div>
+  <form [formGroup]="formInstance">
+    <div class="form-group">
+      <mat-form-field class="col-md-12">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" formControlName="name">
+        <mat-error *ngIf="formInstance.controls['name']?.errors?.required">Input field required</mat-error>
+      </mat-form-field>
+    </div>
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+    <div class="form-group">
+      <mat-form-field class="col-md-12">
+        <mat-label>Address</mat-label>
+        <input matInput type="text" name="address" formControlName="address">
+        <mat-error *ngIf="formInstance.controls['address']?.errors?.required">Input field required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field class="col-md-6">
+          <mat-label>Code</mat-label>
+          <input matInput type="text" name="code" formControlName="code">
+          <mat-error *ngIf="formInstance.controls['code']?.errors?.required">Input field required</mat-error>
+          <mat-error *ngIf="formInstance.controls['code']?.errors?.pattern">Special character not allowed</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-6">
+          <mat-label>Birth</mat-label>
+          <input matInput type="date" name="birth" formControlName="birth">
+          <mat-error *ngIf="formInstance.controls['birth']?.errors?.required">Input field required</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="col-md-12">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" name="email" formControlName="email">
+        <mat-error *ngIf="formInstance.controls['email']?.errors?.required">Input field required</mat-error>
+        <mat-error *ngIf="formInstance.controls['email']?.errors?.email">Not a valid email</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="col-md-12">
+        <mat-label>Image URL</mat-label>
+        <input matInput type="text" id="image" formControlName="image">
+        <mat-error *ngIf="formInstance.controls['image']?.errors?.required">Input field required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-12">
+      <button mat-button (click)="onCancelClick()">Cancel</button>
+      <button mat-button (click)="onSaveClick()" cdkFocusInitial>Save</button>
+      <!-- <button mat-button [mat-dialog-close]="formInstance.value" cdkFocusInitial>Save</button> -->
+    </div>
+  </form>
 </div>

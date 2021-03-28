@@ -10,8 +10,9 @@ import { ChildBComponent } from './child-b/child-b.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
-import { FormsModule } from '@angular/forms';
 import { PersonInfoDialogComponent } from './home/person-info-dialog/person-info-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDialogComponent } from './home/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,14 @@ import { PersonInfoDialogComponent } from './home/person-info-dialog/person-info
     Pages404Component,
     ChildAComponent,
     ChildBComponent,
+    ConfirmDialogComponent,
     PersonInfoDialogComponent,
     HomeComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule
   ],
